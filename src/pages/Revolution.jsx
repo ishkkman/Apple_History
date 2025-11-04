@@ -57,7 +57,7 @@ export default function Revolution() {
               marginRight: "12%",
             }}
           >
-            revolution
+            Revolution
           </h1>
 
           <figure style={fig}>
@@ -70,9 +70,7 @@ export default function Revolution() {
               />
             </div>
             <figcaption style={cap}>
-              cication : https://www.cbc.ca/radio/day6/episode-343-the-iphone-s-secret-history-prince-s-<br />
-              legacy-sustainable-weed-farming-and-more-1.4173019/the-iphone-s-secret-history-<br />
-              how-steve-jobs-went-from-rejecting-to-embracing-the-future-1.4173022
+              cication : Image of Steve Jobs holding an iPhone, 2007, CBC
             </figcaption>
           </figure>
         </section>
@@ -101,9 +99,7 @@ export default function Revolution() {
               />
             </div>
             <figcaption style={cap}>
-              citation : https://www.digidop.com/<br />
-              blog/twitter-x-new-identity-<br />
-              logo-challenges-elon-musk
+              citation : Image of the “X” logo rebrand of Twitter, 2023, Digidop
             </figcaption>
           </figure>
 
@@ -137,7 +133,7 @@ export default function Revolution() {
               />
             </div>
             <figcaption style={cap}>
-              citation : https://www.nbcnews.com/news/amp/wbna31238321
+              citation : Image of protesters during Iran’s presidential election protests, 2009, NBC News
             </figcaption>
           </figure>
         </section>
@@ -155,12 +151,7 @@ export default function Revolution() {
               />
             </div>
             <figcaption style={cap}>
-              citation : https://<br />
-              foreignpolicyblogs.<br />
-              com/2012/06/12/<br />
-              solidarity-irans-<br />
-              green-revolution/<br />
-              amp/
+              citation : Image of a Twitter post supporting Iran’s Presidential Revolution, 2012, ForeignPolicyBlogs
             </figcaption>
           </figure>
         </section>

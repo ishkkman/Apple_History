@@ -45,7 +45,7 @@ export default function Background() {
     <div className="page-wrap">
       <div className="page-inner">
         {/* 상단 중앙 제목 */}
-        <h1 className="h1" style={{ textAlign: "center" }}>background</h1>
+        <h1 className="h1" style={{ textAlign: "center" }}>Background</h1>
 
         {/* 1행: (좌) 이미지1  (우) 텍스트 */}
         <section style={rowStyle} aria-label="before the iPhone">
@@ -58,7 +58,7 @@ export default function Background() {
                 onError={(e) => { e.currentTarget.style.display = "none"; }}
               />
             </div>
-            <figcaption style={captionStyle}>citation : </figcaption>
+            <figcaption style={captionStyle}>citation : Image of Personal Digital Assistant (PDA), 2010, cloy-pda.blogspot.com </figcaption>
           </figure>
 
           <p style={textStyle}>
@@ -102,7 +102,7 @@ export default function Background() {
                 onError={(e) => { e.currentTarget.style.display = "none"; }}
               />
             </div>
-            <figcaption style={captionStyle}>citation : </figcaption>
+            <figcaption style={captionStyle}>citation : Image of most BlackBerry phones no longer working, 2022, TechAdvisor</figcaption>
           </figure>
         </section>
 

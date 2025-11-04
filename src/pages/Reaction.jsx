@@ -6,7 +6,7 @@ export default function Reaction() {
   // 이전: Background, 다음: Revolution (페이지 순서 유지)
   const { prev, next } = getNeighbors("reaction");
 
-  // 공통 스타일
+  // === 기존 스타일 그대로 유지 ===
   const centerBlock = {
     textAlign: "center",
     margin: "12px auto 0",
@@ -73,6 +73,18 @@ export default function Reaction() {
     userSelect: "none",
   };
 
+  // === 추가: 박스용 경량 래퍼(레이아웃 영향 최소화) ===
+  const quoteBoxRow = {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 12, // 기존 centerBlock의 top margin 유지
+  };
+  const quoteBox = {
+    border: "2px solid #000",
+    background: "transparent",
+    padding: "16px 24px",
+  };
+
   return (
     <div className="page-wrap">
       <div className="page-inner">
@@ -94,17 +106,26 @@ export default function Reaction() {
           </div>
         </div>
 
-        {/* 영상 아래 문단 (줄바꿈 명시, 중앙 정렬) */}
-        <p style={centerBlock}>
-          The iPhone was a reaction to the<br />
-          technological incompetence of<br />
-          the early 2000s. In his 2007<br />
-          iPhone presentation, Jobs<br />
-          pointed out this ineﬃciency,<br />
-          introducing the iPhone as the
+         {/* ✅ 추가: 유튜브 영상 바로 아래 citation */}
+         <p style={{ ...caption, marginTop: 8 }}>
+          citation : Video of Steve Jobs introducing iPhone <br />
         </p>
 
-        {/* 다음 문단 (중앙 정렬) */}
+        {/* 영상 아래 문단 -> 사각형 테두리 박스(배경 투명) */}
+        <div style={quoteBoxRow}>
+          <div style={quoteBox}>
+            <p style={{ ...centerBlock, margin: 0 }}>
+              The iPhone was a reaction to the<br />
+              technological incompetence of<br />
+              the early 2000s. In his 2007<br />
+              iPhone presentation, Jobs<br />
+              pointed out this ineﬃciency,<br />
+              introducing the iPhone as the solution.
+            </p>
+          </div>
+        </div>
+
+        {/* 다음 문단 (중앙 정렬) - 기존 유지 */}
         <p style={centerBlock}>
           In a 2007 interview with CNBC, Steve Jobs explained<br />
           that his goal was not simply adding more features,<br />
@@ -127,8 +148,7 @@ export default function Reaction() {
               />
             </div>
             <figcaption style={caption}>
-              citation :<br />
-              Vhttps://unsplash.com/ko/s/%EC%82%AC%EC%A7%84/ipod,
+              citation : Image of an iPod, 2023, Unsplash
             </figcaption>
           </figure>
 
@@ -144,9 +164,7 @@ export default function Reaction() {
               />
             </div>
             <figcaption style={caption}>
-              citation :<br />
-              https://unsplash.com/ko/<br />
-              Vhttps://unsplash.com/ko/s/%EC%82%AC%EC%A7%84/black-rotary-dial-phone-on-white-surface-8gWEAAXJjtI
+              citation : Image of a black rotary-dial phone on white surface, 2018, Unsplash
             </figcaption>
           </figure>
 
@@ -155,7 +173,7 @@ export default function Reaction() {
             ▶
           </div>
 
-          {/* image 3 (움짤 느낌 효과: .gifish) */}
+          {/* image 3 (움짤 느낌 효과: .gifish 유지) */}
           <figure style={fig}>
             <div style={figTitle}>iphone</div>
             <div className="gifish" style={box}>
@@ -166,13 +184,15 @@ export default function Reaction() {
                 onError={(e) => (e.currentTarget.style.display = "none")}
               />
             </div>
-            {/* 요청에 image3의 citation 표기는 없어서 생략 */}
+            <figcaption style={caption}>
+              citation : Image of the evolution of the iPhone, 2014, TIME
+            </figcaption>
           </figure>
         </section>
 
-        {/* 하단 우측 정렬 문단 */}
+        {/* 하단 문단: 중앙 정렬로 변경 (기존 크기·여백 유지) */}
         <div style={{ maxWidth: 900, margin: "10px auto 0" }}>
-          <p style={{ textAlign: "right", lineHeight: 1.7, fontSize: 18 }}>
+          <p style={{ textAlign: "center", lineHeight: 1.7, fontSize: 18 }}>
             which can reduce<br />
             complexity that had been indicated by the diﬃculties<br />
             of earlier devices. The iPhone’s multitouch interface,<br />

@@ -3,128 +3,103 @@ import PageNav from "../components/PageNav";
 import { getNeighbors } from "../routes";
 
 export default function Research() {
-  // 이전 페이지는 impact, 다음은 없음(마지막 페이지)
-  const { prev } = getNeighbors("research");
+  // 이전: Impact on society, 다음: Home (프로젝트 순서 기준)
+  const { prev, next } = getNeighbors("research");
 
   // 공통 스타일
-  const heroWrap = {
-    maxWidth: 1100,
-    margin: "0 auto 12px",
+  const h1Center = { textAlign: "center" };
+
+  const blockTitle = {
     textAlign: "center",
-  };
-  const heroImg = { width: "100%", height: "auto", display: "block" };
-
-  const twoCol = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "28px",
-    alignItems: "start",
-    margin: "28px 0",
+    fontSize: 22,
+    fontWeight: 700,
+    margin: "24px 0 12px",
   };
 
-  const sectionTitle = {
-    textAlign: "center",
-    fontWeight: 600,
-    marginBottom: 8,
-    fontSize: 18,
-  };
-
-  const fig = { textAlign: "center" };
-
-  // 논문 캡처 이미지를 올릴 검정 배경 박스
-  const docStage = {
-    width: "100%",
-    height: 340,
-    background: "#111",
+  // PDF 래퍼/프레임: 중앙 정렬 + 좌우폭 최대(페이지 내부 폭 기준)
+  const pdfWrap = {
     display: "flex",
-    alignItems: "center",
     justifyContent: "center",
-    borderRadius: 2,
+    margin: "8px 0 28px",
   };
-
-  const docImg = {
-    width: "88%",
-    height: "88%",
-    objectFit: "contain",
-    display: "block",
-    boxShadow: "0 0 0 1px rgba(255,255,255,0.05)",
-  };
-
-  const caption = {
-    marginTop: 6,
-    fontSize: 12,
-    color: "#666",
-    textAlign: "center",
+  const pdfFrame = {
+    width: "min(1200px, 95vw)",
+    height: "80vh", // 세로 스크롤 여유
+    border: "1px solid #e5e5e5",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+    background: "#fff",
   };
 
   const footerText = {
     textAlign: "center",
-    lineHeight: 1.9,
-    marginTop: 18,
-    color: "#5a4d3f",
+    lineHeight: 1.7,
+    marginTop: 8,
+    marginBottom: 8,
   };
 
   return (
     <div className="page-wrap">
       <div className="page-inner">
-        {/* 상단 히어로 이미지(중앙 정렬) + citation */}
-        <figure style={heroWrap}>
-          <img
-            src="/images/Research_image1.png"
-            alt="Research hero"
-            style={heroImg}
-            onError={(e) => (e.currentTarget.style.display = "none")}
-          />
-          <figcaption style={caption}>citation :</figcaption>
-        </figure>
+        {/* 상단 제목 (이미지 제거) */}
+        <h1 className="h1" style={h1Center}>
+          Research
+        </h1>
 
-        {/* 좌: Process Paper  /  우: Annotated Bibliography */}
-        <section style={twoCol} aria-label="process paper and annotated bibliography">
-          {/* Left: Process Paper */}
-          <div>
-            <div style={sectionTitle}>Process Paper</div>
-            <figure style={fig}>
-              <div style={docStage}>
-                <img
-                  src="/images/Research_image2.png"
-                  alt="Process paper document"
-                  style={docImg}
-                  onError={(e) => (e.currentTarget.style.display = "none")}
-                />
-              </div>
-              {/* 좌측 이미지는 citation 출력 없음 (요청 반영) */}
-            </figure>
+        {/* 1) Process Paper - PDF viewer */}
+        <div style={blockTitle}>Process Paper</div>
+        <div style={pdfWrap}>
+          <div style={pdfFrame}>
+            <object
+              data="/images/Research_paper1.pdf#view=FitH"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+            >
+              <p style={{ textAlign: "center", padding: 16 }}>
+                PDF viewer를 표시할 수 없습니다.{" "}
+                <a href="/images/Research_paper1.pdf" target="_blank" rel="noreferrer">
+                  파일 열기
+                </a>
+              </p>
+            </object>
           </div>
-
-          {/* Right: Annotated Bibliography */}
-          <div>
-            <div style={sectionTitle}>Annotated Bibliography</div>
-            <figure style={fig}>
-              <div style={docStage}>
-                <img
-                  src="/images/Research_image3.png"
-                  alt="Annotated bibliography document"
-                  style={docImg}
-                  onError={(e) => (e.currentTarget.style.display = "none")}
-                />
-              </div>
-              {/* 우측 이미지도 citation 요구 없음 */}
-            </figure>
-          </div>
-        </section>
-
-        {/* 하단 중앙 정보 텍스트 */}
-        <div style={footerText}>
-          Amy Du, Antonia Kwan, and Brietta Yi<br />
-          Senior Division<br />
-          Group Website<br />
-          Student Composed Words: 1199<br />
-          Process Paper Words: 500<br />
-          Media Length: 1:40
         </div>
 
-        {/* 마지막 페이지: 이전 버튼만 표시 */}
-        <PageNav prev={prev} />
+        {/* 2) Annotated Bibliography - PDF viewer */}
+        <div style={blockTitle}>Annotated Bibliography</div>
+        <div style={pdfWrap}>
+          <div style={pdfFrame}>
+            <object
+              data="/images/Research_paper2.pdf#view=FitH"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+            >
+              <p style={{ textAlign: "center", padding: 16 }}>
+                PDF viewer를 표시할 수 없습니다.{" "}
+                <a href="/images/Research_paper2.pdf" target="_blank" rel="noreferrer">
+                  파일 열기
+                </a>
+              </p>
+            </object>
+          </div>
+        </div>
+
+        {/* 하단 소개 문구 (교체) */}
+        <p style={footerText}>
+          Youngseo Hwang, Ijun Lim
+          <br />
+          sophomore group website
+          <br />
+          Student Composed Words: 757
+          <br />
+          Process Paper Words: 1560
+          <br />
+          Multi-media Length: 42
+        </p>
+
+        {/* 좌하단/우하단 네비게이션 (이전=Impact on society, 다음=Home) */}
+        <PageNav prev={prev} next={next} />
       </div>
     </div>
   );

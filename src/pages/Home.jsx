@@ -51,8 +51,7 @@ export default function Home() {
               />
             </div>
             <figcaption className="img-caption" style={capStyle}>
-              citation : https://www.cnbc.com/2017/06/29/ <br />
-              every-iphone-released-in-order.html
+              citation : Image of every iPhone model released, 2017, CNBC <br />
             </figcaption>
           </figure>
 
@@ -66,7 +65,7 @@ export default function Home() {
               />
             </div>
             <figcaption className="img-caption" style={capStyle}>
-              citation : https://www.apple.com/iphone-17-pro/
+              citation : Image of iPhone 17 Pro, 2023, Apple
             </figcaption>
           </figure>
         </section>
@@ -89,9 +88,9 @@ export default function Home() {
          <div style={{ marginTop: 24 }}>
           <p>Youngseo Hwang, Ijun Lim</p>
           <p>sophomore group website</p>
-          <p>Student Composed Words:</p>
-          <p>Process Paper Words:</p>
-          <p>Multi-media Length:</p>
+          <p>Student Composed Words: 757</p>
+          <p>Process Paper Words: 1560</p>
+          <p>Multi-media Length: 42</p>
         </div>
 
         {/* 오른쪽 하단: Thesis로 이동 버튼 */}

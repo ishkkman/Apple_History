@@ -13,7 +13,7 @@ export default function Thesis() {
     margin: "24px 0 8px",
   };
   const imgStyle = {
-    width: "min(560px, 90%)", // 필요하면 수치만 조정
+    width: "min(560px, 90%)",
     height: "auto",
     objectFit: "contain",
     display: "block",
@@ -28,6 +28,21 @@ export default function Thesis() {
     fontSize: "18px",
   };
 
+  // 캡션(인용) 스타일
+  const captionStyle = {
+    marginTop: 6,
+    fontSize: 12,
+    color: "#666",
+    textAlign: "center",
+  };
+
+  // figure 가운데 정렬 컨테이너
+  const figureWrap = {
+    display: "flex",
+    justifyContent: "center",
+    margin: "18px 0 0",
+  };
+
   return (
     <div
       className="page-wrap"
@@ -36,20 +51,36 @@ export default function Thesis() {
       <div className="page-inner">
         <h1 className="h1">Thesis</h1>
 
-        {/* 텍스트 위, 중앙에 표시하는 이미지 */}
+        {/* 상단 중앙 이미지 (기존 유지: Thesis_image2.png) */}
         <div style={imgWrapStyle}>
           <img
             src="/images/Thesis_image2.png"
             alt="technology"
             style={imgStyle}
             onError={(e) => {
-              // 이미지가 없을 때 레이아웃 깨짐 방지
               e.currentTarget.style.display = "none";
             }}
           />
         </div>
 
-        {/* 줄바꿈을 명시적으로 넣은 본문 텍스트 (가운데 정렬) */}
+        {/* Thesis_image1.png + 바로 아래 캡션 */}
+        <figure style={figureWrap}>
+          <div>
+            <img
+              src="/images/Thesis_image1.png"
+              alt="History of Technology Timeline"
+              style={imgStyle}
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+            <figcaption style={captionStyle}>
+              citation : Image of “History of Technology Timeline”, 2025, Encyclopaedia Britannica
+            </figcaption>
+          </div>
+        </figure>
+
+        {/* 캡션 아래에 본문 4줄 출력 (요청대로 위치 변경) */}
         <p className="lead" style={textStyle}>
           Apple&apos;s invention of the iPhone served as a turning<br />
           point by allowing people to connect with the world in<br />
